@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply font-sans text-dark bg-white;
+}
+
+a {
+  @apply text-burgundy transition-colors duration-200;
+}
+
+a:hover {
+  @apply text-gold;
+}
+
+.section-container {
+  @apply container mx-auto px-4 md:px-8 lg:px-16;
+}
+
+.section-spacing {
+  @apply py-16 md:py-24;
+}
+
+.hero-overlay {
+  background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+}
+
+.card-shadow {
+  @apply shadow-lg hover:shadow-glow transition-shadow duration-300;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 0, 32, 0.7);
+  border-radius: 9999px;
+}
