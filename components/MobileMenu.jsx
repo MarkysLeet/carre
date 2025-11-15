@@ -19,7 +19,7 @@ const MobileMenu = ({ isOpen, onClose, links }) => {
           {/* Затемняющий overlay поверх контента, не влияющий на фон страницы */}
           <motion.div
             key="mobile-menu-overlay"
-            className="fixed inset-0 z-[60] bg-black/50 md:hidden"
+            className="fixed inset-0 z-[9990] bg-black/50 md:hidden"
             initial="hidden"
             animate="visible"
             exit="hidden"
@@ -29,13 +29,16 @@ const MobileMenu = ({ isOpen, onClose, links }) => {
           {/* Сайдбар навигации слева */}
           <motion.aside
             key="mobile-menu-panel"
-            className="fixed top-0 left-0 z-[70] flex h-full w-3/4 max-w-xs flex-col bg-[#FAF9F6] p-6 shadow-xl md:hidden"
+            className="fixed top-0 left-0 z-[10000] flex h-full w-3/4 max-w-xs flex-col bg-[#FAF9F6] p-6 shadow-xl md:hidden"
             initial="hidden"
             animate="visible"
             exit="hidden"
             variants={panelVariants}
             transition={{ type: 'tween', duration: 0.3 }}
             style={{ backgroundColor: '#FAF9F6' }}
+            drag={false}
+            dragListener={false}
+            dragConstraints={false}
           >
             <button
               type="button"

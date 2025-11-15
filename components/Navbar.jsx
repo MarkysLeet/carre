@@ -28,9 +28,24 @@ const Navbar = () => {
     setIsMenuOpen(false);
   }, [router.asPath]);
 
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+    const originalTouchAction = document.body.style.touchAction;
+
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+    }
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.body.style.touchAction = originalTouchAction;
+    };
+  }, [isMenuOpen]);
+
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-[9999] transition-all duration-300 ${
         isScrolled ? 'bg-white/95 backdrop-blur shadow-md' : 'bg-transparent'
       }`}
     >
